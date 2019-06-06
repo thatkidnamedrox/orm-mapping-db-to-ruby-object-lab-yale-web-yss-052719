@@ -37,7 +37,7 @@ class Student
       VALUES (?, ?)
     SQL
 
-    self.new_from_db(DB[:conn].execute(sql, self.name, self.grade).first)
+    DB[:conn].execute(sql, self.name, self.grade)
   end
 
   def self.create_table
