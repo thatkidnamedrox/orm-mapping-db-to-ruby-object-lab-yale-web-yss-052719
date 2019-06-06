@@ -20,6 +20,7 @@ class Student
     sql = <<-SQL
       SELECT * FROM students
       WHERE name = name
+      LIMIT 1
     SQL
   end
 
