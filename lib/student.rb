@@ -53,10 +53,9 @@ class Student
     result
   end
 
-  def self.students_below_12th_grade
+  def self.all
     sql = <<-SQL
       SELECT * FROM students
-      WHERE grade < 12
     SQL
     self.new_from_db(DB[:conn].execute(sql))
   end
