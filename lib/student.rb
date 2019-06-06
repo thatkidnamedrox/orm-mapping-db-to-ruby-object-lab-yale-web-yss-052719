@@ -39,6 +39,7 @@ class Student
     rows = DB[:conn].execute(sql)
     result = []
     rows.each {|row| result << self.new_from_db(row) }
+    result
   end
 
   def self.students_below_12th_grade
