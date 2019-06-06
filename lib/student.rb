@@ -19,8 +19,7 @@ class Student
     # return a new instance of the Student class
     sql = <<-SQL
       SELECT * FROM students
-      WHERE name = name
-      LIMIT 1
+      WHERE name = name LIMIT 1
     SQL
   end
 
