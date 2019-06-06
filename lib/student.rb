@@ -37,7 +37,7 @@ class Student
       VALUES (?, ?)
     SQL
 
-    self.new_from_db(DB[:conn].execute(sql, self.name, self.grade).first))
+    self.new_from_db(DB[:conn].execute(sql, self.name, self.grade).first)
   end
 
   def self.create_table
@@ -56,4 +56,5 @@ class Student
     sql = "DROP TABLE IF EXISTS students"
     DB[:conn].execute(sql)
   end
+  
 end
