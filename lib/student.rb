@@ -57,7 +57,10 @@ class Student
     sql = <<-SQL
       SELECT * FROM students
     SQL
-    self.new_from_db(DB[:conn].execute(sql))
+    rows = DB[:conn].execute(sql)
+    result = []
+    rows.each {|row| result << self.new_from_db(row) }
+    result
   end
 
   def save
