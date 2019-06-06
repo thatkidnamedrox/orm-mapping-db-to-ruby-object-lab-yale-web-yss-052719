@@ -36,6 +36,9 @@ class Student
       SELECT * FROM students
       WHERE grade=9
     SQL
+    rows = DB[:conn].execute(sql)
+    result = []
+    rows.each {|row| self.}
     self.new_from_db(DB[:conn].execute(sql))
   end
 
