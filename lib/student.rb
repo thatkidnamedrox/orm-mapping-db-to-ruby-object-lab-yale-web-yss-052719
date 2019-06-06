@@ -63,6 +63,17 @@ class Student
     result
   end
 
+  def self.first_X_students_in_grade_10(n)
+    sql = <<-SQL
+      SELECT * FROM students
+      WHERE grade < 12
+    SQL
+    rows = DB[:conn].execute(sql)
+    result = []
+    rows.each {|row| result << self.new_from_db(row) }
+    result
+  end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
