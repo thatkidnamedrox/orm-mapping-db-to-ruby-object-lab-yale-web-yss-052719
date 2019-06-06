@@ -28,7 +28,7 @@ class Student
       WHERE name=?
       LIMIT 1
     SQL
-    self.new_from_db(DB[:conn].execute(sql, name))
+    self.new_from_db(DB[:conn].execute(sql, name).first)
   end
 
   def save
