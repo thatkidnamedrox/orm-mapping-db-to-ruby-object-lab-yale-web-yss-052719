@@ -34,8 +34,7 @@ class Student
   def self.all_students_in_grade_9
     sql = <<-SQL
       SELECT * FROM students
-      WHERE name=?
-      LIMIT 1
+      WHERE grade=9
     SQL
     self.new_from_db(DB[:conn].execute(sql))
   end
