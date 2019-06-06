@@ -31,6 +31,15 @@ class Student
     self.new_from_db(DB[:conn].execute(sql, name).first)
   end
 
+  def self.all_students_in_grade_9
+    sql = <<-SQL
+      SELECT * FROM students
+      WHERE name=?
+      LIMIT 1
+    SQL
+    self.new_from_db(DB[:conn].execute(sql, name))
+  end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
