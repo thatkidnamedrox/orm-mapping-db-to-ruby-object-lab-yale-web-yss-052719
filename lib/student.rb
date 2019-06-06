@@ -81,10 +81,7 @@ class Student
       WHERE grade = 10
       LIMIT 1
     SQL
-    rows = DB[:conn].execute(sql)
-    result = []
-    rows.each {|row| result << self.new_from_db(row) }
-    result
+    self.new_from_db(DB[:conn].execute(sql, name).first)
   end
 
   def self.all_students_in_grade_X(n)
