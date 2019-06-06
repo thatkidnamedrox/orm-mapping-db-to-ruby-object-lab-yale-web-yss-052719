@@ -28,7 +28,7 @@ class Student
       WHERE name=?
       LIMIT 1
     SQL
-    puts name
+    puts sql
     DB[:conn].execute(sql, name)
 
   end
