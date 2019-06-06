@@ -90,9 +90,9 @@ class Student
   def self.all_students_in_grade_X(n)
     sql = <<-SQL
       SELECT * FROM students
-      WHERE grade = 10
+      WHERE grade = ?
     SQL
-    rows = DB[:conn].execute(sql)
+    rows = DB[:conn].execute(sql, n)
     result = []
     rows.each {|row| result << self.new_from_db(row) }
     result
